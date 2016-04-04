@@ -1,0 +1,55 @@
+<!--首页模板-->
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% import "_macros.html" as macros %}
+
+{% block title %}Time{% endblock %}
+
+{% block page_content %}
+<div>
+<br>
+<br>
+<br>
+</div>
+<div class="row">
+<div class="col-md-2">
+    <ul class="list-group">
+        <li class="list-group-item"><a href="{{ url_for('main.index') }}">Python</a></li>
+        <li class="list-group-item"><a href="{{ url_for('main.index') }}">Flask</a></li>
+        <li class="list-group-item"><a href="{{ url_for('main.index') }}">Mysql</a></li>
+        <li class="list-group-item"><a href="{{ url_for('main.index') }}">Linux</a></li>
+        <li class="list-group-item"><a href="{{ url_for('main.index') }}">HTML</a></li>
+        <li class="list-group-item"><a href="{{ url_for('main.index') }}">CSS</a></li>
+    </ul>
+	<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><span class="glyphicon glyphicon-tags" aria-hidden="true"></span> 热门标签</h3>
+  </div>
+  <div class="panel-body">
+   
+	<span class="label label-warning">python</span><br>
+	<span class="label label-success">flask</span>
+	<span class="label label-info">学习笔记</span><br>
+	<span class="label label-primary">生活点滴</span><br>
+  </div>
+</div>
+</div>
+
+<div class="col-md-10">
+<div class="cut">
+{% include '_posts.html' %}
+</div>
+{% if pagination %}
+<div class="pagination">
+    {{ macros.pagination_widget(pagination, '.index') }}
+</div>
+{% endif %}
+</div>
+</div>
+{% endblock %}
+
+
+{% block scripts %}
+{{ super() }}
+{{ pagedown.include_pagedown() }}
+{% endblock %}
