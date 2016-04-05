@@ -4,6 +4,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'spring'
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
+    SSL_DISABLE = False	
     FLASKY_MAIL_SUBJECT_PREFIX = '[Time]'
     FLASKY_MAIL_SENDER = 'Time Admin <18521516812@163.com>'
     FLASKY_ADMIN = os.environ.get('FLASKY_ADMIN')
