@@ -119,7 +119,6 @@ def edit(id):
         post = Post(title=form.title.data, 
 		            body=form.body.data)	
         db.session.add(post)
-   	    db.session.commit()	
         flash('The post has been updated.')
         return redirect(url_for('.post', id=post.id))
     form.body.data = post.body
